@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: rgba(255, 154, 4, 0.596);
+    }
+    header{
+        text-align: center;
+        color: white;
+        background-color: rgb(95, 51, 0);
+        padding: 20px;
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+    }
+    .container{
+        text-align: center;
+        width: 400px;
+        height: 200px;
+        background-color: rgb(143, 83, 34);
+        padding: 20px;
+    }
+    h3{
+        margin: 10px;
+    }
+    button{
+        border-radius: 20px;
+        padding: 10px;
+        background-color: white;
+        margin: 10px;
+    }
+    .resultado{
+        text-align: center;
+        background-color: rgba(209, 137, 4, 0.685);
+        width: 100%;
+        height: 50px;
+    }
+</style>
+<body>
+    <header>
+        <h1>DADOS DE LA SUERTE🎲</h1>
+    </header>
+    <section>
+        <div class="center">
+            <div class="container">
+                <h3>Cuantos Jugadores Son?</h3>
+                <input type="number" id="jugadores"><br>
+                <button id="jugar">JUGAR!!!</button>
+                <div class="resultado">
+                    <p id="salida"></p>
+                    <p id="ganador"></p>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <script>
+        //JUEGO DE DADOS
+        var boton=document.getElementById("jugar")
+        boton.addEventListener("click", jugar)
+        function jugar(){
+            var resultados=[];
+            var jugadores=document.getElementById("jugadores").value
+            for (var i=1; i<=jugadores;i++){
+                var dado=Math.floor(Math.random()*6)+1;
+                resultados.push(dado);
+            }
+            var ganador=(resultados.indexOf(Math.max(...resultados)))+1
+            document.getElementById("salida").innerHTML=resultados
+            document.getElementById("ganador").innerHTML="El jugador: "+ganador+" 🎲ES EL GANADOR!!!"
+        }
+        
+    </script>
+</body>
+</html>
+
+
